@@ -36,7 +36,7 @@ return (
         </Routes>
       </Router>
       <Home onAdd={addNote} />
-      {notes.map((noteItem, index) => {
+      {notes.slice(1).map((noteItem, index) => {
         return (
           <Note
             key={index}

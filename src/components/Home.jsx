@@ -14,7 +14,7 @@ import HeartBrokenIcon from '@mui/icons-material/HeartBroken';
 
 import scifiPic from './img/scific.jpeg';
 
-function Welcome(props) {
+function Welcome() {
     return (
         <div>
             <body>
@@ -43,84 +43,78 @@ function Genres(props) {
     );
 }
 
-function Swipe(props) {
+function Home(props) {
 
-    const [isLoggedIn, GenresSelected] = useState ({
-        token: false,
-        action: false,
-        comedy: false,
-        romance: false,
-        animation: false,
-        history: false,
-        musical: false
+const [isLoggedIn, GenresSelected] = useState ({
+  token: false,
+  action: false,
+  comedy: false,
+  romance: false,
+  animation: false,
+  history: false,
+  musical: false
+});
+
+const [isExpanded, setExpanded] = useState(true);
+
+const [currentTitle, setCurrentTitle] = useState([]);
+const [currentYear, setCurrentYear] = useState([]);
+const [currentPoster, setCurrentPoster] = useState([]);
+
+
+const [note, setNote] = useState({
+  title: "",
+  year: "",
+  poster: ""
+});
+
+function handleChange(event) {
+  const { name, value } = event.target;
+  setNote(prevNote => {
+    return {
+      ...prevNote,
+      [name]: value
+    };
+  });
+}
+
+function submitNote(event) {
+  props.onAdd(note);
+  setNote({
+    title: currentTitle,
+    content: currentYear
+  });
+  event.preventDefault();
+  getOtherMovie();
+}
+
+function getOtherMovie(){
+  // re-rendered the component
+  //props.onAdd(note);
+  fetch('/getmovie').then(response => response.json())
+  .then(data => {
+    setCurrentTitle(data.title);
+    setCurrentYear(data.year);
+    setCurrentPoster(data.poster);
     });
 }
 
-function Home(props) {
-
-  const [isExpanded, setExpanded] = useState(true);
-
-  const [currentTitle, setCurrentTitle] = useState([]);
-  const [currentYear, setCurrentYear] = useState([]);
-  const [currentPoster, setCurrentPoster] = useState([]);
-
-  
-  const [note, setNote] = useState({
-      title: "",
-      year: "",
-      poster: ""
+useEffect(() => {
+    fetch('/generate',{
+      method:"POST",
+      headers: {'Content-Type': 'application/json',},
+      body: JSON.stringify({Action:true,History:true,Comedy:true,Romance:true,SciFi:true,Musical:true,Animation:true,Horror:true})
+    }).then(res => res.json()).then(data => {
+    setCurrentTitle(data.title);
+    setCurrentYear(data.year);
+    setCurrentPoster(data.poster);
     });
+}, []);
 
-    function handleChange(event) {
-      const { name, value } = event.target;
-      setNote(prevNote => {
-        return {
-          ...prevNote,
-          [name]: value
-        };
-      });
-    }
+function Swipe(props) {
+  return (
 
-    function submitNote(event) {
-      props.onAdd(note);
-      setNote({
-        title: currentTitle,
-        content: currentYear
-      });
-      event.preventDefault();
-      getOtherMovie();
-    }
-
-    function getOtherMovie(){
-      // re-rendered the component
-      //props.onAdd(note);
-      fetch('/getmovie').then(response => response.json())
-      .then(data => {
-        setCurrentTitle(data.title);
-        setCurrentYear(data.year);
-        setCurrentPoster(data.poster);
-        });
-    }
-
-    useEffect(() => {
-        fetch('/generate',{
-          method:"POST",
-          headers: {'Content-Type': 'application/json',},
-          body: JSON.stringify({Action:true,History:true,Comedy:true,Romance:true,SciFi:true,Musical:true,Animation:true,Horror:true})
-        }).then(res => res.json()).then(data => {
-        setCurrentTitle(data.title);
-        setCurrentYear(data.year);
-        setCurrentPoster(data.poster);
-        });
-    }, []);
-
-    return (
-      
-        <div>
-         
-        {/* <Welcome/>
-          <Genres />  */}
-          <form className="create-note">
+    <form className="create-note">
             {isExpanded && (
               <input
                 name="title"
@@ -145,7 +139,28 @@ function Home(props) {
               </Fab>
 
           </form>
+
+  );
+}
+    return (
+      <div>
+
+      <div>
+           <Welcome/>
         </div>
+
+        <div>
+          <Genres />
+        </div>
+
+        <div>
+          <Swipe />
+        </div>
+      </div>
+      
+        
+       
+      
       );
 }
 
