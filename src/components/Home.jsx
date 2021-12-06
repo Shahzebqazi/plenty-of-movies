@@ -30,17 +30,17 @@ function Welcome() {
 }
 
 function Genres(props) {
-    return (
-        <div>
-            <Button style={{padding: "15px 32px", borderradius: "8px", color: "black", backgroundcolor: "white"}} onClick={() => {}}> Action </Button>
-            <Button style={{padding: "15px 32px", borderradius: "8px", color: "black", backgroundcolor: "white"}} onClick={() => {}}> Action </Button>
-            <Button style={{padding: "15px 32px", borderradius: "8px", color: "black", backgroundcolor: "white"}} onClick={() => {}}> Action </Button>
-            <Button style={{padding: "15px 32px", borderradius: "8px", color: "black", backgroundcolor: "white"}} onClick={() => {}}> Action </Button>
-            <Button style={{padding: "15px 32px", borderradius: "8px", color: "black", backgroundcolor: "white"}} onClick={() => {}}> Action </Button>
-            <Button style={{padding: "15px 32px", borderradius: "8px", color: "black", backgroundcolor: "white"}} onClick={() => {}}> Action </Button>
-            <Button style={{padding: "15px 32px", borderradius: "8px", color: "black", backgroundcolor: "white"}} onClick={() => {}}> Action </Button>
-        </div>
-    );
+  return (
+      <div style={{display: "flex"}}>
+          <Button style={{padding: "15px 32px", borderradius: "8px", color: "black", backgroundcolor: "white"}} onClick={() => {}}> Action </Button>
+          <Button style={{padding: "15px 32px", borderradius: "8px", color: "black", backgroundcolor: "white"}} onClick={() => {}}> Action </Button>
+          <Button style={{padding: "15px 32px", borderradius: "8px", color: "black", backgroundcolor: "white"}} onClick={() => {}}> Action </Button>
+          <Button style={{padding: "15px 32px", borderradius: "8px", color: "black", backgroundcolor: "white"}} onClick={() => {}}> Action </Button>
+          <Button style={{padding: "15px 32px", borderradius: "8px", color: "black", backgroundcolor: "white"}} onClick={() => {}}> Action </Button>
+          <Button style={{padding: "15px 32px", borderradius: "8px", color: "black", backgroundcolor: "white"}} onClick={() => {}}> Action </Button>
+          <Button style={{padding: "15px 32px", borderradius: "8px", color: "black", backgroundcolor: "white"}} onClick={() => {}}> Action </Button>
+      </div>
+  );
 }
 
 function Home(props) {
