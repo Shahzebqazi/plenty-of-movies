@@ -29,7 +29,7 @@ function Welcome() {
         );
 }
 
-function Genres(props) {
+export function Genres(props) {
   return (
       <div style={{display: "flex"}}>
           <Button style={{padding: "15px 32px", borderradius: "8px", color: "black", backgroundcolor: "white"}} onClick={() => {}}> Action </Button>
@@ -156,11 +156,9 @@ function Swipe(props) {
         </div>
       </div>
       
-        
-       
-      
       );
 }
+
 
 export default Home;
 

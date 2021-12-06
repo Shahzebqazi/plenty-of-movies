@@ -2,6 +2,7 @@ import React, {useState} from "react";
 import Button from 'react-bootstrap/Button';
 import { Form } from "react-bootstrap";
 import axios from "axios";
+import  { Genres } from "./Home";
 
 function Login(){
 
