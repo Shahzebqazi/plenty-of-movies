@@ -45,7 +45,7 @@ function Genres(props) {
 
 function Home(props) {
 
-const [isLoggedIn, GenresSelected] = useState ({
+const [GenresSelected] = useState ({
   token: false,
   action: false,
   comedy: false,
@@ -54,8 +54,6 @@ const [isLoggedIn, GenresSelected] = useState ({
   history: false,
   musical: false
 });
-
-const [isExpanded, setExpanded] = useState(true);
 
 const [currentTitle, setCurrentTitle] = useState([]);
 const [currentYear, setCurrentYear] = useState([]);
@@ -115,14 +113,14 @@ function Swipe(props) {
   return (
 
     <form className="create-note">
-            {isExpanded && (
+            
               <input
                 name="title"
                 onChange={handleChange}
                 value={currentTitle}
                 
               />
-            )}
+            
 
             <textarea
               name="content"
@@ -147,7 +145,7 @@ function Swipe(props) {
 
       <div>
            <Welcome/>
-        </div>
+      </div>
 
         <div>
           <Genres />

@@ -1,20 +1,25 @@
 import React, {useState} from "react";
 import Button from 'react-bootstrap/Button';
 import { Form } from "react-bootstrap";
-import {useNavigate} from 'react-router-dom';
 import axios from "axios";
 
 function Login(){
 
-    const [emailReg, setemailReg] = useState('')
-    const [passReg, setpassReg] = useState('')
+    const [emailReg, setemailReg] = useState([]);
+    const [passReg, setpassReg] = useState([]);
+    const [token, setToken] = useState([]);
+    const [isLoggedIn, setIsLoggedIn] = useState([]);
 
     const login = () => {
-        axios.get('http://np5499.pythonanywhere.com/login', {
+        axios.post('/login', {
             email: emailReg, 
             password: passReg
         }).then((response) => {
             console.log(response);
+            if (response.data.success == true) {
+                setToken = response.data.token;
+                setIsLoggedIn = true;
+            }
         });
     };
 
