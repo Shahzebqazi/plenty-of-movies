@@ -60,10 +60,11 @@ function Home(props) {
 
   const [isExpanded, setExpanded] = useState(true);
 
-  const [currentTitle, setCurrentTitle] = useState(0);
-  const [currentYear, setCurrentYear] = useState(0);
-  const [currentPoster, setCurrentPoster] = useState(0);
+  const [currentTitle, setCurrentTitle] = useState([]);
+  const [currentYear, setCurrentYear] = useState([]);
+  const [currentPoster, setCurrentPoster] = useState([]);
 
+  
   const [note, setNote] = useState({
       title: "",
       year: "",
@@ -87,14 +88,18 @@ function Home(props) {
         content: currentYear
       });
       event.preventDefault();
+      getOtherMovie();
     }
 
-    function test(event) {
-      setNote({
-        title: currentTitle,
-        content: currentYear
-      });
-      event.preventDefault();
+    function getOtherMovie(){
+      // re-rendered the component
+      //props.onAdd(note);
+      fetch('/getmovie').then(response => response.json())
+      .then(data => {
+        setCurrentTitle(data.title);
+        setCurrentYear(data.year);
+        setCurrentPoster(data.poster);
+        });
     }
 
     useEffect(() => {
@@ -110,7 +115,11 @@ function Home(props) {
     }, []);
 
     return (
+      
         <div>
+         
+        {/* <Welcome/>
+          <Genres />  */}
           <form className="create-note">
             {isExpanded && (
               <input
@@ -131,7 +140,7 @@ function Home(props) {
               <Fab style={{color: "green"}} onClick={submitNote}>
                 <FavoriteIcon />
               </Fab>
-              <Fab style={{color: "red"}} onClick={test}>
+              <Fab style={{color: "red"}} onClick={getOtherMovie}>
                 <HeartBrokenIcon />
               </Fab>
 
