@@ -11,8 +11,17 @@ import Fab from '@mui/material/Fab';
 import Zoom from '@mui/material/Zoom';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import HeartBrokenIcon from '@mui/icons-material/HeartBroken';
+import { Grid, Row, Col } from "react-bootstrap";
 
-import scifiPic from './img/scific.jpeg';
+import actionPic from './img/action.jpeg'
+import romancePic from './img/romance.jpeg'
+import horrorPic from './img/horror.jpeg'
+import cartoonPic from './img/cartoon.jpeg'
+import historicalPic from './img/historical.jpeg'
+import scifiPic from './img/scific.jpeg'
+import comedyPic from './img/comedy.jpeg'
+import musicalPic from './img/musical.jpeg'
+
 
 function Welcome() {
     return (
@@ -31,16 +40,105 @@ function Welcome() {
 
 export function Genres(props) {
   return (
-      <div style={{display: "flex"}}>
-          <Button style={{padding: "15px 32px", borderradius: "8px", color: "black", backgroundcolor: "white"}} onClick={() => {}}> Action </Button>
-          <Button style={{padding: "15px 32px", borderradius: "8px", color: "black", backgroundcolor: "white"}} onClick={() => {}}> Action </Button>
-          <Button style={{padding: "15px 32px", borderradius: "8px", color: "black", backgroundcolor: "white"}} onClick={() => {}}> Action </Button>
-          <Button style={{padding: "15px 32px", borderradius: "8px", color: "black", backgroundcolor: "white"}} onClick={() => {}}> Action </Button>
-          <Button style={{padding: "15px 32px", borderradius: "8px", color: "black", backgroundcolor: "white"}} onClick={() => {}}> Action </Button>
-          <Button style={{padding: "15px 32px", borderradius: "8px", color: "black", backgroundcolor: "white"}} onClick={() => {}}> Action </Button>
-          <Button style={{padding: "15px 32px", borderradius: "8px", color: "black", backgroundcolor: "white"}} onClick={() => {}}> Action </Button>
-      </div>
-  );
+    <React.Fragment>
+        <div className="card-container" style={containerStyles}>
+        <h1 style ={headerStyles}> Please select an interesting genre </h1>
+            <div className="row">
+                <div className="col-sm"><Card style={beauty_touchup}>
+                    <Card.Img variant="top" src={actionPic} style={imgStyle}/>
+                    <Card.Body>
+                        <Card.Title style = {cardStyle}>Action</Card.Title>
+                        <Card.Text>
+                            Some quick example text to build on the card title and make up the bulk of
+                            the card's content.
+                        </Card.Text>
+                        <Button style={button_styling}>Select</Button>
+                    </Card.Body>
+                </Card></div>
+                <div className="col-sm"><Card style={beauty_touchup}>
+                    <Card.Img variant="top" src={romancePic} style={imgStyle}/>
+                    <Card.Body>
+                        <Card.Title>Romance</Card.Title>
+                        <Card.Text>
+                            Some quick example text to build on the card title and make up the bulk of
+                            the card's content.
+                        </Card.Text>
+                        <Button variant="primary" style={button_styling}>Select</Button>
+                    </Card.Body>
+                </Card></div>
+                <div className="col-sm"><Card style={beauty_touchup}>
+                    <Card.Img variant="top" src={horrorPic} style={imgStyle} />
+                    <Card.Body>
+                        <Card.Title>Horror</Card.Title>
+                        <Card.Text>
+                            Some quick example text to build on the card title and make up the bulk of
+                            the card's content.
+                        </Card.Text>
+                        <Button variant="primary" style={button_styling}>Select</Button>
+                    </Card.Body>
+                </Card></div>
+                <div className="col-sm"><Card style={beauty_touchup}>
+                    <Card.Img variant="top" src={cartoonPic} style={imgStyle}/>
+                    <Card.Body>
+                        <Card.Title>Animation</Card.Title>
+                        <Card.Text>
+                            Some quick example text to build on the card title and make up the bulk of
+                            the card's content.
+                        </Card.Text>
+                        <Button variant="primary" style={button_styling}>Select</Button>
+                    </Card.Body>
+                </Card></div>
+                <div className="col-sm"><Card style={beauty_touchup}>
+                    <Card.Img variant="top" src={historicalPic} style={imgStyle}/>
+                    <Card.Body>
+                        <Card.Title>Historical</Card.Title>
+                        <Card.Text>
+                            Some quick example text to build on the card title and make up the bulk of
+                            the card's content.
+                        </Card.Text>
+                        <Button variant="primary" style={button_styling}>Select</Button>
+                    </Card.Body>
+                </Card></div>
+                <div className="col-sm"><Card style={beauty_touchup}>
+                    <Card.Img variant="top" src={ scifiPic } style={imgStyle}/>
+                    <Card.Body>
+                        <Card.Title>Sci-Fi</Card.Title>
+                        <Card.Text>
+                            Some quick example text to build on the card title and make up the bulk of
+                            the card's content.
+                        </Card.Text>
+                        <Button variant="primary" style={button_styling}>Select</Button>
+                    </Card.Body>
+                </Card></div>
+                <div className="col-sm"><Card style={beauty_touchup}>
+                    <Card.Img variant="top" src={ comedyPic } style={imgStyle}/>
+                    <Card.Body>
+                        <Card.Title>Comedy</Card.Title>
+                        <Card.Text>
+                            Some quick example text to build on the card title and make up the bulk of
+                            the card's content.
+                        </Card.Text>
+                        <Button variant="primary" style={button_styling}>Select</Button>
+                    </Card.Body>
+                </Card></div>
+                <div className="col-sm"><Card style={beauty_touchup}>
+                    <Card.Img variant="top" src={ musicalPic } style={imgStyle}/>
+                    <Card.Body>
+                        <Card.Title>Musical</Card.Title>
+                        <Card.Text>
+                            Some quick example text to build on the card title and make up the bulk of
+                            the card's content.
+                        </Card.Text>
+                        <Button variant="primary" style={button_styling}>Select</Button>
+                    </Card.Body>
+                    <div><Button variant="primary" style={button_styling2}>Confirm</Button></div>
+                </Card></div>
+            </div>
+        </div>
+    </React.Fragment>
+
+
+);
 }
 
 function Home(props) {
@@ -129,7 +227,7 @@ function Swipe(props) {
             />
               <img src={currentPoster}/>
               <br/>
-              <Fab style={{color: "green"}} onClick={submitNote}>
+              <Fab style={{color: "green"}} onClick={submitNote} queryByMovieTitle="switch movie">
                 <FavoriteIcon />
               </Fab>
               <Fab style={{color: "red"}} onClick={getOtherMovie}>
@@ -162,31 +260,54 @@ function Swipe(props) {
 
 export default Home;
 
+const button_styling2 ={
+  border: '1px solid',
+  borderColor: '#09B5F6',
+  borderRadius: "10px",
+  width: '350px',
+  color: "#09B5F6",
+  fontWeight: "bold",
+  backgroundColor: "white"
+}
+
+const imgStyle ={
+  height: "200px",
+  width: "300px"
+}
+
 const containerStyles={
-    backgroundImage: "linear-gradient(to right, #0E98CD, #83CAE5)",
-    alignPropType: 'center',
-    textAlign: 'center',
-    height:'100vh'
+  height: "100vh",
+  width: "6000px",
+  background: "linear-gradient(to right, #0E98CD, #83CAE5)",
+  alignPropType: 'center',
+  textAlign: "center",
+
 }
 
-const titleStyle ={
-    alignPropType: "center",
-    textAlign: 'center',
-    borderBottom:"3px solid black",
-    paddingBottom: '10px'
+const headerStyles ={
+  backgroundImage: "linear-gradient(to right, #0E98CD, #83CAE5)",
+  display: "flex",
+  justifyContent: "center",
+  alignItems: "center",
+  color: "white",
+  fontWeight:"bold",
+  paddingBottom: "40px"
+}
+const cardStyle ={
+  alignPropType: "center",
 }
 
+const beauty_touchup ={
+  border: '1px transparent',
+  borderRadius: '20px',
+  width: '15rem'
+}
 const button_styling = {
-    color:'#09B5F6',
-    fontWeight: 'bold',
-    border:"5px solid",
-    borderRadius: '30px',
-    borderColor: '#09B5F6',
-    backgroundColor: 'white'
-}
-
-const card_border ={
-    border: '1px transparent',
-    borderRadius: "10px",
-    width: '16rem'
+  border: '1px solid',
+  borderColor: '#09B5F6',
+  borderRadius: "10px",
+  width: '100px',
+  color: "#09B5F6",
+  fontWeight: "bold",
+  backgroundColor: "white"
 }

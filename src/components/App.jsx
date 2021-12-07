@@ -54,7 +54,7 @@ return (
      
       
 
-      {notes.slice(1).map((noteItem, index) => {
+      {notes.slice(0).map((noteItem, index) => {
         return (
           <Note
             key={index}
