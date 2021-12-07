@@ -1,14 +1,14 @@
 import React from "react"
 import ReactDOM from "react-dom";
-import {render, fireEvent} from "@testing-library/react";
-import { Swipe } from "./Home.jsx";
+import { render } from "@testing-library/react";
+import { Genres } from "./Home.jsx";
 
 
 
 //Swipe right changes movie
 it("renders correctly", () => {
-    const div = document.createElement("div");
-    ReactDOM.render(<Swipe></Swipe>,div)
+    const {queryByTestId} = render(<Genres/>)
+    expect(queryByTestId("switch movie")).toBeFalsy()
 })
 
 

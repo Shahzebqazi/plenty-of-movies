@@ -227,7 +227,7 @@ function Swipe(props) {
             />
               <img src={currentPoster}/>
               <br/>
-              <Fab style={{color: "green"}} onClick={submitNote} queryByMovieTitle="switch movie">
+              <Fab style={{color: "green"}} onClick={submitNote}>
                 <FavoriteIcon />
               </Fab>
               <Fab style={{color: "red"}} onClick={getOtherMovie}>
@@ -246,11 +246,11 @@ function Swipe(props) {
       </div>
 
         <div>
-          <Genres />
+          <Genres queryByMovieTitle="switch movie"/>
         </div>
 
         <div>
-          <Swipe />
+          <Swipe/>
         </div>
       </div>
       
